@@ -72,6 +72,7 @@ RUN apt-get update && \
     x11-xserver-utils
 
 # Install Chrome and ChromeDriver
+RUN echo 'Acquire::Retries "15";' > /etc/apt/apt.conf.d/80-retries
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     wget \
